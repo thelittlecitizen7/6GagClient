@@ -17,6 +17,7 @@ var GagInserterPage = () => {
             form.append('text', text.value);
             form.append('title', title.value);
             form.append("image", d.files[0]);
+            
 
 
             console.log(d)
@@ -25,13 +26,18 @@ var GagInserterPage = () => {
                 headers: {
                   'Content-Type': 'multipart/form-data'
                 }
+            }).then(res => {
+                setMessage("Succes")
+            })
+            .catch(err => {
+                setMessage("Failed")
             })
         }
 
     return (
         <div>
             <Container>
-                <input type="file" id="file" name="file"></input>
+                
 
                 <Row className="justify-content-md-center">
                 
@@ -48,9 +54,12 @@ var GagInserterPage = () => {
                         <label>Text : </label><input type="text" id="text"></input>
                         </Col>
                         <Col md={6} className="text-center">
-                            {/* <button type="button" onClick={() => {createGag()}}>Create</button> */}
+                        <input type="file" id="file" name="file"></input>
+                        </Col>
+                        <Col md={6} className="text-center">
                             <button type="button" onClick={() => {upload()}}>Create</button>
                         </Col>
+                        
                         <div id="result">
                             <h1>{message}</h1>
                         </div>
