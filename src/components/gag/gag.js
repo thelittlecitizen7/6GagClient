@@ -10,16 +10,13 @@ var Gag = (props) => {
             marginBottom: '15px'
         }} 
         onClick={() => {props.onClickHandler()}} >
-            
             <Card style={{ width: '18rem' }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                <Card.Img variant="top" style={{ width: '286px' , height:'115px' }}  src={`data:image/jpeg;base64,${props.img}`} />
                 <Card.Body>
                     <Card.Title>{props.Title}</Card.Title>
                     <Card.Text>{props.Text}</Card.Text>
-                    <Button variant="primary">Insert</Button>
                 </Card.Body>
             </Card>
-            
         </div>
     )
 

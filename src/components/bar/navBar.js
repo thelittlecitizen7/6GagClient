@@ -5,9 +5,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Gag from "../gag/gag";
+
 import GagBoard from "../gagBoard/gagBoard";
 import GagPage from "../gagPage/gagPage";
+import GagInserterPage from "../gagInserter/gagInserter"
+
 
 var  NavigatorBar = () => {
   return (
@@ -18,6 +20,9 @@ var  NavigatorBar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
+            <li>
+              <Link to="/addGag">Create Gag</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -27,6 +32,9 @@ var  NavigatorBar = () => {
         </Route>
         <Route path="/gags/:id">
           <GagPage/>
+        </Route>
+        <Route  path="/addGag">
+          <GagInserterPage/>
         </Route>
       </Switch>
     </Router>

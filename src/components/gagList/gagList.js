@@ -4,7 +4,7 @@ import Gag from '../gag/gag';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row ,Col} from 'react-bootstrap';
 import {useHistory} from 'react-router-dom'
-
+import axios from 'axios';
 
 var GagList = (props) => {
 
@@ -22,11 +22,12 @@ var GagList = (props) => {
 
     var rednerAllGags = () => {
         var gags = props.gags;
+        console.log(3)
         var htmlGags = gags.map((gag,index) => {
             return (
                 <div>
                     <Col key={index} md={4} className="text-center">
-                        <Gag  Title={gag.title} Text={gag.text} onClickHandler={() => {onGagClick(gag)}}/>
+                        <Gag  Title={gag.title} Text={gag.text} img={gag.img}  onClickHandler={() => {onGagClick(gag)}}/>
                     </Col>
                 </div>
                 )
