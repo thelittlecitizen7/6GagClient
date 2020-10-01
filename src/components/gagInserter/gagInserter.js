@@ -12,11 +12,16 @@ var GagInserterPage = () => {
             
             let text = document.getElementById("text")
             let title = document.getElementById("title")
+            // let firstName = document.getElementById("firstName")
+            let firstName = localStorage.getItem('name')
             var d = document.getElementById("file")
             const form = new FormData();
             form.append('text', text.value);
             form.append('title', title.value);
-            form.append("image", d.files[0]);
+            form.append('name', firstName);
+            if (d.files.length > 0){
+                form.append("image", d.files[0]);
+            }
             
 
 
@@ -47,6 +52,9 @@ var GagInserterPage = () => {
                 </Row>
                 <Row className="justify-content-md-center">
                     <Col md={6} className="text-center">
+                        {/* <Col md={6} className="text-center">
+                            <label>First Name : </label><input type="text" id="firstName"></input>
+                        </Col> */}
                         <Col md={6} className="text-center">
                             <label>Title : </label><input type="text" id="title"></input>
                         </Col>

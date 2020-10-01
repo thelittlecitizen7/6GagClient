@@ -3,6 +3,7 @@ import GagList from '../gagList/gagList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container,Row } from 'react-bootstrap';
 import axios from 'axios';
+import NavigatorBar from "../bar/navBar"
 
 
 
@@ -23,7 +24,6 @@ var GagBoard = () => {
     return (
         <div id="gagBoard">
             <Container>
-                
             <Row className="justify-content-md-center">
                     <Col className="text-center">
                         <h1>Gags</h1>

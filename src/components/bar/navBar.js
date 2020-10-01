@@ -9,9 +9,11 @@ import {
 import GagBoard from "../gagBoard/gagBoard";
 import GagPage from "../gagPage/gagPage";
 import GagInserterPage from "../gagInserter/gagInserter"
+import Login from '../login/login'
 
 
-var  NavigatorBar = () => {
+
+var NavigatorBar = (props) => {
   return (
     <Router>
       <div>
@@ -23,6 +25,14 @@ var  NavigatorBar = () => {
             <li>
               <Link to="/addGag">Create Gag</Link>
             </li>
+            <li >
+              {/* <a onClick={() => {
+                localStorage.setItem("name",undefined)
+                props.setName(undefined);
+                 return (<Login/>)
+                }}>Logout</a> */}
+              <Link >Logout</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -33,7 +43,7 @@ var  NavigatorBar = () => {
         <Route path="/gags/:id">
           <GagPage/>
         </Route>
-        <Route  path="/addGag">
+        <Route path="/addGag">
           <GagInserterPage/>
         </Route>
       </Switch>

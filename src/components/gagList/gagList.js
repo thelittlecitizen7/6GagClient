@@ -27,7 +27,7 @@ var GagList = (props) => {
             return (
                 <div>
                     <Col key={index} md={4} className="text-center">
-                        <Gag  Title={gag.title} Text={gag.text} img={gag.img}  onClickHandler={() => {onGagClick(gag)}}/>
+                        <Gag  gag={gag} renderLikes={false} gagSize={ {width: '300px' , height:'400px' }} imgSize={{width: '300px' , height:'150px'}} onClickHandler={() => {onGagClick(gag)}}/>
                     </Col>
                 </div>
                 )
