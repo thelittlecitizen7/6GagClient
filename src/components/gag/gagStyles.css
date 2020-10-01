@@ -1,0 +1,14 @@
+.fa {
+    font-size: 100px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .fa:hover {
+    color: darkblue;
+  }
+
+  #unlike{
+    margin-left: 20px;
+    
+  }
