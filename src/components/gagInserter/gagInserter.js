@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container,Row } from 'react-bootstrap';
 import axios from 'axios'
+import {Card,ListGroup,Button} from 'react-bootstrap'
 var fs = require('fs');
 const FormData = require('form-data');
 
@@ -42,35 +43,40 @@ var GagInserterPage = () => {
     return (
         <div>
             <Container>
-                
 
                 <Row className="justify-content-md-center">
-                
-                    <Col className="text-center">
-                        <h1>create gag</h1>
-                    </Col>
-                </Row>
-                <Row className="justify-content-md-center">
-                    <Col md={6} className="text-center">
-                        {/* <Col md={6} className="text-center">
-                            <label>First Name : </label><input type="text" id="firstName"></input>
-                        </Col> */}
-                        <Col md={6} className="text-center">
-                            <label>Title : </label><input type="text" id="title"></input>
-                        </Col>
-                        <Col md={6} className="text-center">
-                        <label>Text : </label><input type="text" id="text"></input>
-                        </Col>
-                        <Col md={6} className="text-center">
-                        <input type="file" id="file" name="file"></input>
-                        </Col>
-                        <Col md={6} className="text-center">
-                            <button type="button" onClick={() => {upload()}}>Create</button>
-                        </Col>
-                        
+                <Col md={8} className="text-center">
+                    <Card>
+                        <Card.Header>
+                            <Card.Title className="text-center">
+                                <h1>create gag</h1>
+                            </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                        <ListGroup variant="flush">
+                            <ListGroup.Item>
+                                <label>Title : </label><input type="text" id="title"></input>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <label>Text : </label><input type="text" id="text"></input>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <input type="file" id="file" name="file"></input>
+                            </ListGroup.Item>
+                        </ListGroup> 
                         <div id="result">
                             <h1>{message}</h1>
-                        </div>
+                        </div>   
+                        </Card.Body>
+
+                        <Card.Footer className="text-center">
+                        <Button onClick={() => {upload()}} variant="primary">Create gag</Button>
+                        </Card.Footer>
+                    </Card>
+                
+                    <Col className="text-center">
+                        
+                    </Col>
                     </Col>
                 </Row>
             </Container>

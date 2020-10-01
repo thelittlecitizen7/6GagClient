@@ -109,8 +109,7 @@ var Gag = (props) => {
                         </Card.Title>
                 </div>
                 
-            </Card.Header>
-                            
+            </Card.Header>  
                         <div style={{paddingTop:"10px"}}>
                         {renderPicture()}
                         </div>

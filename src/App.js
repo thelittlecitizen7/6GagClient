@@ -9,7 +9,7 @@ function App() {
   
   let page;
   
-  if (name !== null){
+  if ((name !== null )&&(name !== undefined)&&(name !== "undefined")){
     page = (<MainApp setName={setName}/>)
   }
   else{
