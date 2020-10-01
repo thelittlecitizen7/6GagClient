@@ -9,6 +9,7 @@ import {Row,Col} from 'react-bootstrap'
 import GagBoard from "../gagBoard/gagBoard";
 import GagPage from "../gagPage/gagPage";
 import GagInserterPage from "../gagInserter/gagInserter"
+import BestGagPage from "../bestGagPage/bestGagPage"
 import Login from '../login/login'
 import {Nav} from 'react-bootstrap'
 import "./navBarStyles.css"
@@ -16,6 +17,12 @@ import profilePic from '../../imgs/profilePic.png'
 
 
 var NavigatorBar = (props) => {
+
+  var log = () => {
+    localStorage.setItem("name",undefined)
+    props.setName(undefined)
+    return (<Login/>)
+  }
   return (
     <Router>
       <div>
@@ -27,6 +34,12 @@ var NavigatorBar = (props) => {
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="/addGag"><h4 className="linkText">Create gag</h4></Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/bestGags"><h4 className="linkText">Best gags</h4></Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link onClick={() => {log()}}><h4 className="linkText">Logout</h4></Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -47,6 +60,10 @@ var NavigatorBar = (props) => {
         <Route path="/addGag">
           <GagInserterPage/>
         </Route>
+        <Route path="/bestGags">
+          <BestGagPage/>
+        </Route>
+        
       </Switch>
       </div>
     </Router>

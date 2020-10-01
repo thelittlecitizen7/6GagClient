@@ -2,18 +2,16 @@ import React, { useEffect, useState } from 'react';
 import GagList from '../gagList/gagList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container,Row } from 'react-bootstrap';
-import axios from 'axios';
-import NavigatorBar from "../bar/navBar"
-
+import {getAllGages} from '../../logic/gagServerHandler/gagHandler'
 
 
 var GagBoard = () => {
-    // todo : send http request to server to get gags
+    
   
     const [gags , setGags] = useState([])
 
     const fetchGags = async() => {
-        let respone = await axios.get("http://localhost:9090/api/gags")
+        let respone = await getAllGages()
         setGags(respone.data.gags)
     }
 

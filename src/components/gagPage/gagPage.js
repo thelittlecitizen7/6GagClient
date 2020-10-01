@@ -5,11 +5,9 @@ import { Row ,Col, Container} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import './pageGageStyles.css';
 import axios from 'axios';
-import GagHandler from '../../logic/gagServerHandler/gagHandler'
+// import GagHandler from '../../logic/gagServerHandler/gagHandler'
 import Gag from '../gag/gag'
-// todo : add button to like and not and add comment and add Image
 
-var gagHandler = new GagHandler()
 
 var GagPage = () => {
     let {id} = useParams();
@@ -20,7 +18,7 @@ var GagPage = () => {
     const [likesCount,setLikeCount] = useState(0)
     const [unlikesCount,setUnLikeCount] = useState(0)
 
-
+    
     const fetchGag = async(id) => {
         let respone = await axios.get(`http://localhost:9090/api/gag/${id}`)
         let name = localStorage.getItem("name")

@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container,Row } from 'react-bootstrap';
 import axios from 'axios'
 import {Card,ListGroup,Button} from 'react-bootstrap'
+import {addGag} from '../../logic/gagServerHandler/gagHandler'
 var fs = require('fs');
 const FormData = require('form-data');
 
@@ -13,7 +14,6 @@ var GagInserterPage = () => {
             
             let text = document.getElementById("text")
             let title = document.getElementById("title")
-            // let firstName = document.getElementById("firstName")
             let firstName = localStorage.getItem('name')
             var d = document.getElementById("file")
             const form = new FormData();
@@ -24,15 +24,7 @@ var GagInserterPage = () => {
                 form.append("image", d.files[0]);
             }
             
-
-
-            console.log(d)
-
-            axios.post('http://localhost:9090/api/upload', form, {
-                headers: {
-                  'Content-Type': 'multipart/form-data'
-                }
-            }).then(res => {
+            addGag(form).then(res => {
                 setMessage("Succes")
             })
             .catch(err => {

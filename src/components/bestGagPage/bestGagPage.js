@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Gag from '../gag/gag';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row ,Col} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
+import {Col,Row} from 'react-bootstrap'
+import Gag from '../gag/gag'
+import {getAllGages} from '../../logic/gagServerHandler/gagHandler'
 import {useHistory} from 'react-router-dom'
-import axios from 'axios';
 
-var GagList = (props) => {
+var BestGagPage = () => {
 
     const history = useHistory();
     
@@ -18,12 +18,28 @@ var GagList = (props) => {
         })
     }
 
-   
+    const [gags , setGags] = useState([])
+    const fetchGags = async() => {
+        let respone = await getAllGages()
+        setGags(respone.data.gags)
+    }
+
+    useEffect(() => {
+        fetchGags();
+      },[]);
+
 
     var rednerAllGags = () => {
-        var gags = props.gags;
-        console.log(3)
-        var htmlGags = gags.map((gag,index) => {
+        var lsPoints = gags.map(g => {
+            return {
+                point : g.likes.length - g.unlikes.length,
+                gag : g
+            }
+        });
+        var ls = lsPoints.sort((a, b) => b - a);
+
+        var htmlGags = ls.map((g,index) => {
+            var gag = g.gag
             return (
                 <div>
                     <Col key={index} md={4} className="text-center">
@@ -46,4 +62,4 @@ var GagList = (props) => {
     )
 }
 
-export default GagList;
+export default BestGagPage;

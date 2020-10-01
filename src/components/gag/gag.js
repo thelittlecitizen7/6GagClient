@@ -5,6 +5,8 @@ import {Row} from 'react-bootstrap'
 import './gagStyles.css'
 import axios from 'axios'
 import profilePic from '../../imgs/profilePic.png'
+import config from '../../config'
+
 
 var Gag = (props) => {
     var renderPicture = () => {
@@ -63,12 +65,11 @@ var Gag = (props) => {
             console.log("already clicked")
             return;
         }
-        let respone = await axios.put(`http://localhost:9090/api/like/`,{
+            let respone = await axios.put(`${config.url}/api/like/`,{
             name : localStorage.getItem('name'),
             id : props.gag.id,
             isLike : isLike
         })
-        console.log(respone)
         return respone
     }
 
